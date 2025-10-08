@@ -190,7 +190,7 @@ a:focus {
 }
 
 .dark-bg {
-  background: #252525;
+  background: #000;
   color: #fff;
 }
 
@@ -668,14 +668,14 @@ ul.top-info li p.info-text {
 /* Header area
 ================================================== */
 .header {
-  background: #23282d;
+  background: #000;
   position: relative;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .header-one,
 .header-one .site-navigation {
-  background: #23282d;
+  background: #000;
 }
 
 .header-one .navbar-collapse {

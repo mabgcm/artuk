@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Perla Nera Contractors</title>
+  <title>Artuk Construction</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="Construction Html5 Template">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -16,6 +16,45 @@
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <link rel="stylesheet" href="css/style.css">
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('IA5TFDCYOGeK05erF');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_t3im1gx', 'template_gplcm3f', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                        // reset each input field in the form
+                      var inputs = document.getElementById('contact-form').getElementsByTagName('input');
+                      for (var i = 0; i < inputs.length; i++) {
+                          inputs[i].value = '';
+                      }
+                      var textarea = document.getElementById('contact-form').getElementsByTagName('textarea')[0];
+                      textarea.value = '';
+                      Toastify({
+                      text: "Message sent successfully!",
+                      duration: 3000,
+                      close: true,
+                      gravity: "top",
+                      position: "right",
+                      backgroundColor: "#4CAF50",
+                      stopOnFocus: true,
+                  }).showToast();
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+
 </head>
 <body>
   <div class="body-inner">
@@ -25,7 +64,7 @@
           <div class="row">
               <div class="col-lg-8 col-md-8">
                 <ul class="top-info text-center text-md-left">
-                    <li><i class="fas fa-map-marker-alt"></i> <p class="info-text">151 Franklin Trail, Barrie ON, L9J 0B1</p>
+                    <li><i class="fas fa-map-marker-alt"></i> <p class="info-text">7250 Keele Street, Vaughan, ON L4K 1Z8</p>
                     </li>
                 </ul>
               </div>
@@ -33,11 +72,8 @@
               <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                 <ul class="list-unstyled">
                     <li>
-                      <a title="Facebook" href="https://www.facebook.com/perlaneracontractors" target="__blank">
+                      <a title="Facebook" href="https://www.facebook.com/" target="__blank">
                           <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
-                      </a>
-                      <a title="LinkedIn" href="#">
-                          <span class="social-icon"><i class="fab fa-linkedin"></i></span>
                       </a>
                       <a title="Instagram" href="#">
                           <span class="social-icon"><i class="fab fa-instagram"></i></span>
@@ -50,13 +86,13 @@
     </div>
     
 <header id="header" class="header-one">
-  <div class="text-white bg-dark">
+  <div class="text-white dark-bg">
     <div class="container">
       <div class="logo-area">
           <div class="row align-items-center">
             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                 <a class="d-block" href="index.html">
-                  <img class="logo" loading="lazy" src="images/banner.png" alt="Perla Nera">
+                  <img class="logo" loading="lazy" src="images/logo.jpg" alt="Perla Nera">
                 </a>
             </div>
   
@@ -65,29 +101,26 @@
                   <li>
                     <div class="info-box">
                       <div class="info-box-content">
-                          <p class="info-box-title">Call Us</p>
-                          <p class="info-box-subtitle text-warning">(+1) 437-247-0650</p>
+                        <p class="info-box-title">Call Us</p>
+                        <p class="info-box-subtitle text-warning">
+                          <a href="tel:+14372650712" class="text-warning">(437)265-0712</a>
+                        </p>
                       </div>
                     </div>
                   </li>
                   <li>
                     <div class="info-box">
                       <div class="info-box-content">
-                          <p class="info-box-title">Email Us</p>
-                          <p class="info-box-subtitle text-warning">info@perlanera.ca</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="last">
-                    <div class="info-box last">
-                      <div class="info-box-content">
-                          <p class="info-box-title">Global Certificate</p>
-                          <p class="info-box-subtitle text-warning">ISO 9001:2017</p>
+                        <p class="info-box-title">Email Us</p>
+                        <p class="info-box-subtitle text-warning">
+                          <a href="mailto:info@artukconstruction.ca" class="text-warning">info@artukconstruction.ca</a>
+                        </p>
                       </div>
                     </div>
                   </li>
                   <li class="header-get-a-quote">
-                    <a class="btn btn-primary" href="contact.html#contact-form">Get A Quote</a>
+                    <a class="btn btn-primary" href="https://wa.me/14372650712" 
+                      target="_blank">Get A Quote</a>
                   </li>
                 </ul><!-- Ul end -->
             </div><!-- header right end -->
@@ -112,23 +145,23 @@
                           <a href="index.html" class="nav-link dropdown-toggle">Home</a>
                       </li>
 
-                      <li class="nav-item dropdown">
+                      <!-- <li class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
                           <ul class="dropdown-menu" role="menu">
                             <li><a href="about.html">About Us</a></li>
-                            <!-- <li><a href="team.html">Our People</a></li> -->
-                            <!-- <li><a href="faq.html">Faq</a></li> -->
                             <li><a href="pricing.html">Pricing</a></li>
                           </ul>
+                      </li> -->
+              
+                      <li class="nav-item dropdown">
+                          <a href="#about" class="nav-link dropdown-toggle" >About Us</a>                         
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a href="#portfolio" class="nav-link dropdown-toggle" >Projects</a>                         
                       </li>
               
                       <li class="nav-item dropdown">
-                          <a href="projects.html" class="nav-link dropdown-toggle" >Projects</a>
-                          
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="services.html" class="nav-link dropdown-toggle" >Services</a>
+                          <a href="#services" class="nav-link dropdown-toggle" >Services</a>
                           
                       </li>
                       <!-- <li class="nav-item dropdown">
@@ -136,7 +169,7 @@
                           
                       </li> -->
               
-                      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
                 </div>
               </nav>
@@ -158,11 +191,16 @@
         <div class="container h-100">
           <div class="row align-items-center h-100">
               <div class="col-md-12 text-center">
-                <h2 class="slide-title" data-animation-in="slideInLeft">12 Years of excellence in</h2>
+                <h2 class="slide-title" data-animation-in="slideInLeft">42 Years of excellence in</h2>
                 <h3 class="slide-sub-title" data-animation-in="slideInRight">Construction Industry</h3>
                 <p data-animation-in="slideInLeft" data-duration-in="1.2">
                     <a href="services.html" class="slider btn btn-primary">Our Services</a>
-                    <a href="contact.html" class="slider btn btn-primary border">Contact Now</a>
+                    <a 
+                      href="sms:+14372650712?body=Hi%20I%27m%20interested%20in%20your%20services" 
+                      target="_blank" 
+                      class="slider btn btn-primary border">
+                      Contact Now
+                    </a>
                 </p>
               </div>
           </div>
@@ -170,7 +208,7 @@
     </div>
   </div>
 
-  <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg2.jpg)">
+  <!-- <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg2.jpg)">
     <div class="slider-content text-left">
         <div class="container h-100">
           <div class="row align-items-center h-100">
@@ -185,9 +223,9 @@
           </div>
         </div>
     </div>
-  </div>
+  </div> -->
 
-  <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg3.jpg)">
+  <!-- <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg3.jpg)">
     <div class="slider-content text-right">
         <div class="container h-100">
           <div class="row align-items-center h-100">
@@ -203,7 +241,7 @@
           </div>
         </div>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <section class="call-to-action-box no-padding">
@@ -217,7 +255,11 @@
           </div><!-- Col end -->
           <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
               <div class="call-to-action-btn">
-                <a class="btn btn-dark" href="contact.html">Request Quote</a>
+                <a class="btn btn-dark"
+                  href="sms:+14372650712?body=Hi%20I%27m%20interested%20in%20your%20services" 
+                  target="_blank">
+                  Request Quote
+                </a>
               </div>
           </div><!-- col end -->
         </div><!-- row end -->
@@ -393,7 +435,7 @@
   <!--/ Container end -->
 </section><!-- Facts end -->
 
-<section id="ts-service-area" class="ts-service-area pb-0">
+<section id="about" class="ts-service-area pb-0">
   <div class="container">
     <div class="row text-center">
         <div class="col-12">
@@ -492,180 +534,423 @@
         </div><!-- Col end -->
     </div><!-- Content row end -->
 
+    <div class="col">
+          <!-- <h3 class="column-title text-center">Who We Are</h3> -->
+          <p>We specialize in renovating buildings to bring new life to them and improve the communities we serve. With years of experience in the industry, we have built a reputation for delivering high-quality workmanship, exceptional customer service, and timely completion of projects.</p>
+          
+          <p>Our team uses the latest tools and techniques to ensure that all projects are completed efficiently and to the highest standards. We are passionate about what we do, and we take pride in transforming buildings into beautiful, functional spaces that meet the needs of our clients.</p>
+
+        </div><!-- Col end -->
+
   </div>
   <!--/ Container end -->
 </section><!-- Service end -->
 
-
-
-
-<section class="content">
+<div id="portfolio"></div>
+<section id="main-container" class="main-container">
   <div class="container">
-    <div class="row">
-        
 
-        <div class="col-12">
-
-          <h3 class="column-title text-center">Our Partners</h3>
-
-          <div class="row all-clients">
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <img loading="lazy" class="img-fluid" src="images/clients/1.png" alt="clients-logo" />
-                </figure>
-              </div><!-- Client 1 end -->
-
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <img loading="lazy" class="img-fluid" src="images/clients/2.png" alt="clients-logo" />
-                </figure>
-              </div><!-- Client 2 end -->
-
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <img loading="lazy" class="img-fluid" src="images/clients/3.png" alt="clients-logo" />
-                </figure>
-              </div><!-- Client 3 end -->
-
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <img loading="lazy" class="img-fluid" src="images/clients/4.png" alt="clients-logo" />
-                </figure>
-              </div><!-- Client 4 end -->
-
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <img loading="lazy" class="img-fluid" src="images/clients/5.png" alt="clients-logo" />
-                </figure>
-              </div><!-- Client 5 end -->
-
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <img loading="lazy" class="img-fluid" src="images/clients/6.png" alt="clients-logo" />
-                </figure>
-              </div><!-- Client 6 end -->
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <img loading="lazy" class="img-fluid" src="images/clients/7.png" alt="clients-logo" />
-                </figure>
-              </div><!-- Client 7 end -->
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <img loading="lazy" class="img-fluid" src="images/clients/8.png" alt="clients-logo" />
-                </figure>
-              </div><!-- Client 8 end -->
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <img loading="lazy" class="img-fluid" src="images/clients/9.png" alt="clients-logo" />
-                </figure>
-              </div><!-- Client 9 end -->
-
-          </div><!-- Clients row end -->
-
-        </div><!-- Col end -->
-
-    </div>
-    <!--/ Content row end -->
-  </div>
-  <!--/ Container end -->
-
-</section>
-
-<!-- <section id="news" class="news">
-  <div class="container">
     <div class="row text-center">
         <div class="col-12">
-          <h2 class="section-title">Work of Excellence</h2>
-          <h3 class="section-sub-title">Recent Projects</h3>
+          <h2 class="section-title">Recent Projects</h2>
+          <h3 class="section-sub-title">Our Portfolio</h3>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="latest-post">
-              <div class="latest-post-media">
-                <a href="news-single.html" class="latest-post-img">
-                    <img loading="lazy" class="img-fluid" src="images/news/news1.jpg" alt="img">
-                </a>
-              </div>
-              <div class="post-body">
-                <h4 class="post-title">
-                    <a href="news-single.html" class="d-inline-block">We Just Completes $17.6 million Medical Clinic in Mid-Missouri</a>
-                </h4>
-                <div class="latest-post-meta">
-                    <span class="post-item-date">
-                      <i class="fa fa-clock-o"></i> July 20, 2017
-                    </span>
-                </div>
-              </div>
-          </div>
+      <div class="col-12">
+        <div class="shuffle-btn-group">
+          <label class="active" for="all">
+            <input type="radio" name="shuffle-filter" id="all" value="all" checked="checked">Show All
+          </label>
+          
+          <label for="deck">
+            <input type="radio" name="shuffle-filter" id="deck" value="deck">Deck
+          </label>
+          
+          
+          <label for="landscape">
+            <input type="radio" name="shuffle-filter" id="landscape" value="landscape">Landscape
+          </label>
+          <label for="masonry">
+            <input type="radio" name="shuffle-filter" id="masonry" value="masonry">Masonry
+          </label>
+          <label for="stucco">
+            <input type="radio" name="shuffle-filter" id="stucco" value="stucco">Stucco
+          </label>
+          <label for="stonework">
+            <input type="radio" name="shuffle-filter" id="stonework" value="stonework">Stonework
+          </label>
+          
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="latest-post">
-              <div class="latest-post-media">
-                <a href="news-single.html" class="latest-post-img">
-                    <img loading="lazy" class="img-fluid" src="images/news/news2.jpg" alt="img">
-                </a>
-              </div>
-              <div class="post-body">
-                <h4 class="post-title">
-                    <a href="news-single.html" class="d-inline-block">Thandler Airport Water Reclamation Facility Expansion Project Named</a>
-                </h4>
-                <div class="latest-post-meta">
-                    <span class="post-item-date">
-                      <i class="fa fa-clock-o"></i> June 17, 2017
-                    </span>
-                </div>
-              </div>
-          </div>
-        </div>
 
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="latest-post">
-              <div class="latest-post-media">
-                <a href="news-single.html" class="latest-post-img">
-                    <img loading="lazy" class="img-fluid" src="images/news/news3.jpg" alt="img">
-                </a>
-              </div>
-              <div class="post-body">
-                <h4 class="post-title">
-                    <a href="news-single.html" class="d-inline-block">Silicon Bench and Cornike Begin Construction Solar Facilities</a>
-                </h4>
-                <div class="latest-post-meta">
-                    <span class="post-item-date">
-                      <i class="fa fa-clock-o"></i> Aug 13, 2017
-                    </span>
+        <div class="row shuffle-wrapper">
+          <div class="col-1 shuffle-sizer"></div>
+
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;stonework&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="images/projects/Stone/prj_stone1.jpg" aria-label="project-img">
+                <img class="img-fluid" src="images/projects/Stone/prj_stone1.jpg" alt="project-img">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+                  <h3 class="project-item-title">
+                    <a href="projects-stone1.html">Stone 1</a>
+                  </h3>
+                  <p class="project-cat">Stonework</p>
                 </div>
               </div>
-          </div>
+            </div>
+          </div><!-- shuffle item stone1 end -->
+
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;stonework&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="images/projects/Stone/prj_stone2.jpg" aria-label="project-img">
+                <img class="img-fluid" src="images/projects/Stone/prj_stone2.jpg" alt="project-img">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+                  <h3 class="project-item-title">
+                    <a href="projects-stone2.html">Stone 2</a>
+                  </h3>
+                  <p class="project-cat">Stonework</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- shuffle item stone2 end -->
+
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;stucco&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="images/projects/Stucco/prj_stucco1.jpg" aria-label="project-img">
+                <img class="img-fluid" src="images/projects/Stucco/prj_stucco1.jpg" alt="project-img">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+                  <h3 class="project-item-title">
+                    <a href="projects-stucco1.html">8 Halloway</a>
+                  </h3>
+                  <p class="project-cat">Stucco</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- shuffle item stucco1 end -->
+
+          <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;stucco&quot;]">
+            <div class="project-img-container">
+              <a class="gallery-popup" href="images/projects/Stucco/prj_stucco2.jpg" aria-label="project-img">
+                <img class="img-fluid" src="images/projects/Stucco/prj_stucco2.jpg" alt="project-img">
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+                  <h3 class="project-item-title">
+                    <a href="projects-stucco2.html">27 Austin,</a>
+                  </h3>
+                  <p class="project-cat">Stucco</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- shuffle item stucco2 end -->
+
+          
+
+          
+
+        </div><!-- shuffle end -->
+      </div>
+
+      <div class="col-12">
+        <div class="general-btn text-center">
+          <a class="btn btn-primary" href="projects.html">View All Projects</a>
+        </div>
+      </div>
+
+    </div><!-- Content row end -->
+
+  </div><!-- Conatiner end -->
+</section><!-- Main container end -->
+
+<div id="services"></div>
+<section id="main-container" class="main-container pb-2">
+  <div class="container">
+
+    <div class="row text-center">
+        <div class="col-12">
+          <h2 class="section-title">Expert Solutions for You</h2>
+          <h3 class="section-sub-title">Our Services</h3>
         </div>
     </div>
 
-    <div class="general-btn text-center mt-4">
-        <a class="btn btn-primary" href="news-left-sidebar.html">See All Posts</a>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-5">
+        <div class="ts-service-box">
+            <div class="ts-service-image-wrapper">
+              <img loading="lazy" class="w-100" src="images/services/architecture.jpg" alt="service-image">
+            </div>
+            <div class="d-flex">
+              <!-- <div class="ts-service-box-img">
+                  <img loading="lazy" src="images/icon-image/sketch.png" alt="service-icon">
+              </div> -->
+              <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="#">Architecture</a></h3>
+                  <p>Create your dream space with our innovative designs that blend form and function seamlessly. Elevate your lifestyle with our expert architectural solutions.</p>
+                  <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+              </div>
+            </div>
+        </div><!-- Service1 end -->
+      </div><!-- Col 1 end -->
+
+      <div class="col-lg-3 col-md-6 mb-5">
+        <div class="ts-service-box">
+            <div class="ts-service-image-wrapper">
+              <img loading="lazy" class="w-100" src="images/services/stucco.jpg" alt="service-image">
+            </div>
+            <div class="d-flex">
+              <!-- <div class="ts-service-box-img">
+                  <img loading="lazy" src="images/icon-image/service-icon2.png" alt="service-icon">
+              </div> -->
+              <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="#">Stucco (EIFS)</a></h3>
+                  <p>Transform your building's exterior with our premium stucco. Durable, energy-efficient, and customizable to your style. Trust us to enhance your property's value.</p>
+                  <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+              </div>
+            </div>
+        </div><!-- Service2 end -->
+      </div><!-- Col 2 end -->
+
+      <div class="col-lg-3 col-md-6 mb-5">
+        <div class="ts-service-box">
+            <div class="ts-service-image-wrapper">
+              <img loading="lazy" class="w-100" src="images/services/landscape.jpg" alt="service-image">
+            </div>
+            <div class="d-flex">
+              <!-- <div class="ts-service-box-img">
+                  <img loading="lazy" src="images/icon-image/service-icon3.png" alt="service-icon">
+              </div> -->
+              <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="#">Landscape</a></h3>
+                  <p>Experience nature at your doorstep with our stunning landscapes. Enhance your property's aesthetics and value with our expert designs and meticulous installations.</p>
+                  <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+              </div>
+            </div>
+        </div><!-- Service3 end -->
+      </div><!-- Col 3 end -->
+
+      <div class="col-lg-3 col-md-6 mb-5">
+        <div class="ts-service-box">
+            <div class="ts-service-image-wrapper">
+              <img loading="lazy" class="w-100" src="images/services/masonry.jpg" alt="service-image">
+            </div>
+            <div class="d-flex">
+              <!-- <div class="ts-service-box-img">
+                  <img loading="lazy" src="images/icon-image/service-icon4.png" alt="service-icon">
+              </div> -->
+              <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="#">Masonry</a></h3>
+                  <p>Upgrade your property's durability and beauty with our premium masonry services. Trust our skilled craftsmen to deliver stunning results that last a lifetime.</p>
+                  <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+              </div>
+            </div>
+        </div><!-- Service1 end -->
+      </div><!-- Col 4 end -->
+
+      <div class="col-lg-3 col-md-6 mb-5">
+        <div class="ts-service-box">
+            <div class="ts-service-image-wrapper">
+              <img loading="lazy" class="w-100" src="images/services/deck.jpg" alt="service-image">
+            </div>
+            <div class="d-flex">
+              <!-- <div class="ts-service-box-img">
+                  <img loading="lazy" src="images/icon-image/service-icon5.png" alt="service-icon">
+              </div> -->
+              <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="#">Deck</a></h3>
+                  <p>Elevate your outdoor living space with our expertly crafted decks. From design to installation, we bring your dream deck to life. Relax in style today.</p>
+                  <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+              </div>
+            </div>
+        </div><!-- Service2 end -->
+      </div><!-- Col 5 end -->
+
+      <div class="col-lg-3 col-md-6 mb-5">
+        <div class="ts-service-box">
+            <div class="ts-service-image-wrapper">
+              <img loading="lazy" class="w-100" src="images/services/stonework.jpg" alt="service-image">
+            </div>
+            <div class="d-flex">
+              <!-- <div class="ts-service-box-img">
+                  <img loading="lazy" src="images/icon-image/service-icon6.png" alt="service-icon">
+              </div> -->
+              <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="#">Stonework</a></h3>
+                  <p>Transform your property with our stunning stonework. From fireplaces to patios, we design and install custom stonework that brings your vision to life.</p>
+                  <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+              </div>
+            </div>
+        </div><!-- Service3 end -->
+      </div><!-- Col 6 end -->
+
+      <div class="col-lg-3 col-md-6 mb-5">
+        <div class="ts-service-box">
+            <div class="ts-service-image-wrapper">
+              <img loading="lazy" class="w-100" src="images/services/doorwindow.jpg" alt="service-image">
+            </div>
+            <div class="d-flex">
+              <!-- <div class="ts-service-box-img">
+                  <img loading="lazy" src="images/icon-image/service-icon6.png" alt="service-icon">
+              </div> -->
+              <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="#">Door & Window</a></h3>
+                  <p>Upgrade your property's style, comfort, and energy efficiency with our premium doors and windows. Trust us for expert installation and exceptional service.</p>
+                  <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+              </div>
+            </div>
+        </div><!-- Service3 end -->
+      </div><!-- Col 7 end -->
+
+      <div class="col-lg-3 col-md-6 mb-5">
+        <div class="ts-service-box">
+            <div class="ts-service-image-wrapper">
+              <img loading="lazy" class="w-100" src="images/services/plumbing.jpg" alt="service-image">
+            </div>
+            <div class="d-flex">
+              <!-- <div class="ts-service-box-img">
+                  <img loading="lazy" src="images/icon-image/service-icon6.png" alt="service-icon">
+              </div> -->
+              <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="#">Plumbing</a></h3>
+                  <p>Experience reliable and expert plumbing services for your property. Our team delivers fast and efficient solutions for all your plumbing needs. Contact us today.</p>
+                  <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+              </div>
+            </div>
+        </div><!-- Service3 end -->
+      </div><!-- Col 8 end -->
+
+    </div><!-- Main row end -->
+  </div><!-- Conatiner end -->
+</section><!-- Main container end -->
+
+<div id="contact"></div>
+<section id="main-container" class="main-container">
+  <div class="container">
+
+    <div class="row text-center">
+      <div class="col-12">
+        <h2 class="section-title">Reaching our Office</h2>
+        <h3 class="section-sub-title">Find Our Location</h3>
+      </div>
+    </div>
+    <!--/ Title row end -->
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="ts-service-box-bg text-center h-100">
+          <span class="ts-service-icon icon-round">
+            <i class="fas fa-map-marker-alt mr-0"></i>
+          </span>
+          <div class="ts-service-box-content">
+            <h4>Visit Our Office</h4>
+            <p>7250 Keele Street, Vaughan, ON L4K 1Z8</p>
+          </div>
+        </div>
+      </div><!-- Col 1 end -->
+
+      <div class="col-md-4">
+        <div class="ts-service-box-bg text-center h-100">
+          <span class="ts-service-icon icon-round">
+            <i class="fa fa-envelope mr-0"></i>
+          </span>
+          <div class="ts-service-box-content">
+            <h4>Email Us</h4>
+            <p>info@artukconstruction.ca</p>
+          </div>
+        </div>
+      </div><!-- Col 2 end -->
+
+      <div class="col-md-4">
+        <div class="ts-service-box-bg text-center h-100">
+          <span class="ts-service-icon icon-round">
+            <i class="fa fa-phone-square mr-0"></i>
+          </span>
+          <div class="ts-service-box-content">
+            <h4>Call Us</h4>
+            <p>(437)265-0712</p>
+          </div>
+        </div>
+      </div><!-- Col 3 end -->
+
+    </div><!-- 1st row end -->
+
+    <div class="gap-60"></div>
+
+    <div class="col-md-12 google-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.3042852003487!2d-79.50022222316163!3d43.78729867109615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2e43c7215f37%3A0x6c202b2ba6430dbc!2sImprove%20Canada!5e0!3m2!1sen!2sca!4v1759932080693!5m2!1sen!2sca" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-  </div>
-</section> -->
+    <div class="gap-40"></div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="column-title">We love to hear from you</h3>
+        <form id="contact-form">
+          <input type="hidden" name="contact_number">
+          <div class="error-container"></div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Name</label>
+                <input class="form-control form-control-name" name="user_name" id="user_name" placeholder="" type="text" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Email</label>
+                <input class="form-control form-control-email" name="user_email" placeholder="" type="email"
+                  required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Subject</label>
+                <input class="form-control form-control-subject" name="subject" placeholder="" required>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea class="form-control form-control-message" name="message" placeholder="" rows="10"
+              required></textarea>
+          </div>
+          <div class="text-right"><br>
+            <button class="btn btn-primary solid blank" type="submit" value="send">Send Message</button>
+          </div>
+        </form>
+      </div>
+
+    </div><!-- Content row -->
+  </div><!-- Conatiner end -->
+</section><!-- Main container end -->
 
   <footer id="footer" class="footer bg-overlay">
     <div class="footer-main">
       <div class="container">
         <div class="row justify-content-between">
           <div class="col-lg-4 col-md-6 footer-widget footer-about">
-            <h3 class="widget-title">About Us</h3>
-            <img loading="lazy" class="footer-logo" src="images/banner.png" alt="Constra">
+            <!-- <h3 class="widget-title">About Us</h3> -->
+            <img loading="lazy" class="footer-logo" src="images/logo.jpg" alt="Artuk Construction">
             <p>We renovate buildings to improve communities we serve. We deliver high-quality workmanship, exceptional service, and timely completion. Our experienced team uses modern techniques to create beautiful and functional spaces for clients.</p>
             <div class="footer-social">
-              <ul>
-                <li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i
+              <!-- <ul>
+                <li><a href="https://facebook.com/" aria-label="Facebook"><i
                       class="fab fa-facebook-f"></i></a></li>
-                <li><a href="https://twitter.com/themefisher" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </li>
-                <li><a href="https://instagram.com/themefisher" aria-label="Instagram"><i
+                <li><a href="https://instagram.com/" aria-label="Instagram"><i
                       class="fab fa-instagram"></i></a></li>
-              </ul>
+              </ul> -->
             </div><!-- Footer social end -->
           </div><!-- Col end -->
 
@@ -681,7 +966,7 @@
           </div><!-- Col end -->
 
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
-            <h3 class="widget-title">Services</h3>
+            <h3 class="widget-title">Portfolio</h3>
             <ul class="list-arrow">
               <li><a href="#">Pre-Construction</a></li>
               <li><a href="#">General Contracting</a></li>
@@ -701,43 +986,13 @@
             <div class="copyright-info text-center">
               <span>Copyright &copy; <script>
                   document.write(new Date().getFullYear())
-                </script>, Designed &amp; Developed by <a href="https://mabgcm.com" target="_blank">MA.Bugucam</a></span>
+                </script>, Designed &amp; Developed by <a href="https://ravlink.ca" target="_blank">Rav Link Inc.</a></span>
             </div>
           </div>
         </div><!-- Row end -->
 
 
-        <div class="back-to-top position-fixed">
-          <!-- Messenger Chat Plugin Code -->
-          <div id="fb-root"></div>
-
-          <!-- Your Chat Plugin code -->
-          <div id="fb-customer-chat" class="fb-customerchat">
-          </div>
-
-          <script>
-            var chatbox = document.getElementById('fb-customer-chat');
-            chatbox.setAttribute("page_id", "109824478744862");
-            chatbox.setAttribute("attribution", "biz_inbox");
-          </script>
-
-          <!-- Your SDK code -->
-          <script>
-            window.fbAsyncInit = function() {
-              FB.init({
-                xfbml            : true,
-                version          : 'v16.0'
-              });
-            };
-
-            (function(d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) return;
-              js = d.createElement(s); js.id = id;
-              js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-              fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-          </script>
+        <div class="back-to-top position-fixed">         
         </div>
 
       </div><!-- Container end -->
@@ -764,7 +1019,7 @@
 
 
   <!-- Google Map API Key-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script> -->
   <!-- Google Map Plugin-->
   <script src="plugins/google-map/map.js" defer></script>
 
